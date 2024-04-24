@@ -1,0 +1,60 @@
+.hangman-container {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.word-display {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hint {
+    font-style: italic;
+    color: #6c757d;
+    margin-bottom: 10px;
+}
+
+.guess-input {
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 40px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.guess-input:focus {
+    outline: none;
+}
+
+.error-count {
+    color: #dc3545;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.win-message {
+    color: #198754;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.new-word-button {
+    background-color: #0d6efd;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.new-word-button:hover {
+    background-color: #0b5ed7;
+}
