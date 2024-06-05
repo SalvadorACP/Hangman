@@ -1,9 +1,22 @@
-
 import { useState } from "react";
 import Hangman from "./components/Hangman";
 import Welcome from "./components/Welcome";
+import Clock from "./components/Clock";
 
-const wordCategories = {
+interface Hints {
+  [key: string]: string;
+}
+
+interface Category {
+  words: string[];
+  hints: Hints;
+}
+
+interface WordCategories {
+  [key: string]: Category;
+}
+
+const wordCategories: WordCategories = {
   planetas: {
     words: ['tierra', 'marte', 'venus', 'jupiter', 'saturno', 'neptuno'],
     hints: {
@@ -51,10 +64,10 @@ const wordCategories = {
 };
 
 function App() {
-  const [currentCategory, setCurrentCategory] = useState<string | null>(null);
+  const [currentCategory, setCurrentCategory] = useState<keyof WordCategories | null>(null);
 
   const selectRandomCategory = () => {
-    const categories = Object.keys(wordCategories);
+    const categories = Object.keys(wordCategories) as (keyof WordCategories)[];
     const randomIndex = Math.floor(Math.random() * categories.length);
     setCurrentCategory(categories[randomIndex]);
   };
@@ -62,6 +75,7 @@ function App() {
   return (
     <div className="App">
       <Welcome />
+      {currentCategory && <Clock />}
       <div className="category-container">
         <button onClick={selectRandomCategory} className="random-button">
           Select Random Category
